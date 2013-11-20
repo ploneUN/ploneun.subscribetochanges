@@ -14,6 +14,9 @@ from ploneun.subscribetochanges import MessageFactory as _
 # Visit http://pypi.python.org/pypi/archetypes.schemaextender for full 
 # documentation on writing extenders
 
+class ExtensionLinesField(ExtensionField, atapi.LinesField):
+    pass
+
 class FieldsExtender(grok.Adapter):
 
     # This applies to all AT Content Types, change this to
@@ -26,7 +29,14 @@ class FieldsExtender(grok.Adapter):
     layer = IProductSpecific
 
     fields = [
-        # add your extension fields here
+        ExtensionLinesField(
+            'ploneun_changesubscribers',
+            required=False,
+            schemata='settings',
+            widget=atapi.LinesField._properties['widget'](
+                label=_(u'Users subscribing to changes'),
+            )
+        )
     ]
 
     def __init__(self, context):

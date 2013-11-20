@@ -8,7 +8,7 @@ from ploneun.subscribetochanges.interfaces import ISubscribeToChangesCapable
 from plone.namedfile import field as namedfile
 from z3c.relationfield.schema import RelationChoice, RelationList
 from plone.formwidget.contenttree import ObjPathSourceBinder
-
+from plone.supermodel import model
 from ploneun.subscribetochanges import MessageFactory as _
 
 class ISubscribeToChanges(form.Schema, ISubscribeToChangesCapable):
@@ -17,5 +17,15 @@ class ISubscribeToChanges(form.Schema, ISubscribeToChangesCapable):
     """
 
     # -*- Your Zope schema definitions here ... -*-
+    model.fieldset(
+        'settings',
+        label=_(u"Settings"),
+        fields=['ploneun_changesubscribers']
+    )
+
+    ploneun_changesubscribers = schema.List(
+        title=_(u'Users subscribing to changes'),
+        required=False,
+    )
 
 alsoProvides(ISubscribeToChanges,IFormFieldProvider)
