@@ -3,5 +3,5 @@ from zope.interface import Interface
 class IProductSpecific(Interface):
     pass
 
-class ISubscribeToChangesCapable(Interface):
+class ISubscribeToChangesEnabled(Interface):
     pass

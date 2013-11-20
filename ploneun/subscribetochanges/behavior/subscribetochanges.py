@@ -4,14 +4,14 @@ from zope import schema
 from plone.directives import form
 from plone.dexterity.interfaces import IDexterityContent
 from plone.autoform.interfaces import IFormFieldProvider
-from ploneun.subscribetochanges.interfaces import ISubscribeToChangesCapable
+from ploneun.subscribetochanges.interfaces import ISubscribeToChangesEnabled
 from plone.namedfile import field as namedfile
 from z3c.relationfield.schema import RelationChoice, RelationList
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.supermodel import model
 from ploneun.subscribetochanges import MessageFactory as _
 
-class ISubscribeToChanges(form.Schema, ISubscribeToChangesCapable):
+class ISubscribeToChanges(form.Schema, ISubscribeToChangesEnabled):
     """
        Marker/Form interface for Subscribe To Changes
     """

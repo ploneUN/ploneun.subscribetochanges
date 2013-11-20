@@ -7,7 +7,7 @@ from zope.interface import Interface
 from five import grok
 from ploneun.subscribetochanges.interfaces import (
     IProductSpecific,
-    ISubscribeToChangesCapable
+    ISubscribeToChangesEnabled
 )
 from ploneun.subscribetochanges import MessageFactory as _
 
@@ -21,7 +21,7 @@ class FieldsExtender(grok.Adapter):
 
     # This applies to all AT Content Types, change this to
     # the specific content type interface you want to extend
-    grok.context(ISubscribeToChangesCapable)
+    grok.context(ISubscribeToChangesEnabled)
     grok.name('ploneun.subscribetochanges.fieldsextender')
     grok.implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     grok.provides(IOrderableSchemaExtender)
