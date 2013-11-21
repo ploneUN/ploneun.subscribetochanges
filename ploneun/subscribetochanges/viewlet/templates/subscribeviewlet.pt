@@ -1,0 +1,10 @@
+<div id="ploneun-subscribetochanges-subscribeviewlet" style="text-align:right">
+    <a tal:condition="not:viewlet/subscribed"
+        tal:attributes="href string:${context/absolute_url}/ploneun-subscribetochanges">
+        Subscribe to changes
+    </a>
+    <a tal:condition="viewlet/subscribed"
+        tal:attributes="href string:${context/absolute_url}/ploneun-subscribetochanges">
+        Unsubscribe from changes
+    </a>
+</div>

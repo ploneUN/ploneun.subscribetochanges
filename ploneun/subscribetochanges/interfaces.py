@@ -5,3 +5,6 @@ class IProductSpecific(Interface):
 
 class ISubscribeToChangesEnabled(Interface):
     pass
+
+class ISubscriberManager(Interface):
+    pass
