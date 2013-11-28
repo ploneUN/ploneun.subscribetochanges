@@ -6,10 +6,11 @@ from Products.CMFCore.interfaces import IContentish
 from plone.app.layout.viewlets import interfaces as manager
 from ploneun.subscribetochanges.interfaces import IProductSpecific
 from ploneun.subscribetochanges.interfaces import ISubscriberManager
+from ploneun.subscribetochanges.interfaces import ISubscribeToChangesEnabled
 grok.templatedir('templates')
 
 class SubscribeViewlet(grok.Viewlet):
-    grok.context(IContentish)
+    grok.context(ISubscribeToChangesEnabled)
     grok.viewletmanager(manager.IBelowContentTitle)
     grok.template('subscribeviewlet')
     grok.layer(IProductSpecific)
