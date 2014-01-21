@@ -37,7 +37,7 @@ def mail_notification(obj, event):
 
     type_title = obj.portal_types[obj.portal_type].Title()
     subject = safe_unicode(u'%s: %s have just been updated' % (
-        type_title, obj.Title())
+        type_title, safe_unicode(obj.Title()))
     )
 
     msg = MIMEMultipart()
